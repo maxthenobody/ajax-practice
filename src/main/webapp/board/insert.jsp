@@ -22,4 +22,40 @@
 		</th>
 	</tr>
 </table>
+<script>
+	$(function() {
+		$("#btn").click(function() {			
+			$.ajax({
+				url: "/ajax/board/insert",
+				method: "POST",
+				data: {
+					title: $("input[name=title]").val(),
+					nickname: $("input[name=nickname]").val(),
+					content: $("textarea[name=content]").val()
+				},
+				success: function(data) {
+					// console.log(data);
+					alert("게시글 등록 성공.");
+					location.href = "board?posted=1";
+				},
+				error: function(xhr, status, err) {
+					console.log(xhr, status, err);
+					alert("게시글 등록 실패.");
+				}
+			});
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 

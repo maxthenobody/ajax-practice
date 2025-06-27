@@ -49,6 +49,13 @@ public class BoardServlet extends HttpServlet {
 			System.out.println("데이터 있음.");
 		}
 		
+//		System.out.println(request.getParameter("posted"));
+		if (request.getParameter("posted") == null) {
+			request.setAttribute("posted", 0);
+		} else {
+			request.setAttribute("posted", request.getParameter("posted"));			
+		}
+		
 		request.getRequestDispatcher("/board/board.jsp").forward(request, response);
 	}
 
